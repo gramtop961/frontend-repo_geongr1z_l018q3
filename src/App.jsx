@@ -1,28 +1,43 @@
-import { useState } from 'react'
+import Navbar from "./components/Navbar";
+import AuthPanel from "./components/AuthPanel";
+import WeatherPanel from "./components/WeatherPanel";
+import AdvisoryPanel from "./components/AdvisoryPanel";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-white text-slate-800">
+      <Navbar />
+
+      <main className="max-w-6xl mx-auto px-4">
+        <section className="py-10">
+          <div className="text-center mb-10">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Crop Advisory for Smarter, Healthier Harvests
+            </h1>
+            <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
+              Manage your season with weather insights, fertilizer guidance, expert help, and simple market tips.
+            </p>
+          </div>
+          <AuthPanel />
+        </section>
+
+        <section className="py-10">
+          <WeatherPanel />
+        </section>
+
+        <section className="py-10">
+          <AdvisoryPanel />
+        </section>
+      </main>
+
+      <footer className="mt-16 border-t border-black/5 bg-white/70">
+        <div className="max-w-6xl mx-auto px-4 py-6 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-2">
+          <span>© {new Date().getFullYear()} AgriGuide</span>
+          <span className="text-slate-400">Built for farmers to thrive</span>
         </div>
-      </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
